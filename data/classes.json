@@ -7330,7 +7330,7 @@ var classdata = {
                        "subclass": "Sacred Oath: Oath of Redemption (UA)",
                        "parent": "Oath of the Redemption (UA)",
                        "_optional": "YES"
-                     },
+                     }
                   ],
                   "_level": "3"
                },
