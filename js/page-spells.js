@@ -36,6 +36,9 @@ function parsesource (source) {
 	if (source === "EEPC") source = "Elemental Evil Player's Companion";
 	if (source === "SCAG") source = "Sword Coast Adventurer's Guide";
 	if (source === "UAMystic") source = "Unearthed Arcana: The Mystic Class";
+	if (source === "UAStarterSpells") source = "Unearthed Arcana: Starter Spells";
+	if (source === "UATOBM") source = "Unearthed Arcana: The Old Black Magic";
+	if (source === "UAModern") source = "Unearthed Arcana: Modern Magic";
 	return source;
 }
 
@@ -284,7 +287,7 @@ function usespell (id) {
 			} else for (var i = 0; i < textlist.length; i++) {
 				if (!textlist[i]) continue;
 				if (curspell.level[0] !== "P") {
-					texthtml = texthtml + "<p>"+textlist[i].replace("At Higher Levels: ", "<strong>At Higher Levels:</strong> ").replace("This spell can be found in the Elemental Evil Player's Companion","")+"</p>";
+					texthtml = texthtml + "<p>"+textlist[i].replace(/At Higher Levels(\:|\.) /g, "<strong>At Higher Levels:</strong> ").replace("This spell can be found in the Elemental Evil Player's Companion.","").replace(/^.*(Psychic Focus|Bestial Transformation|Atonement|Bless Water|Coming of Age|Dedication|Funeral Rite|Investiture|Marriage)+\./g,"<strong>$&</strong>")+"</p>";
 				} else {
 					texthtml = texthtml + "<p>"+textlist[i].replace(/^.*(\(.*psi.*?\)|Psychic Focus|Bestial Transformation)\./g,"<strong>$&</strong>")+"</p>";
 				}
